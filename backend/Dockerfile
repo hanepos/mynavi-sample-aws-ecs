@@ -20,7 +20,7 @@ RUN yum install -y apache-maven
 # (G)
 ENV JAVA_HOME /etc/alternatives/jre
 # (H)
-RUN git clone https://github.com/hanedan/mynavi-sample-aws-ecs.git /usr/local/mynavi-sample-aws-ecs
+RUN git clone https://github.com/hanepos/mynavi-sample-aws-ecs.git /usr/local/mynavi-sample-aws-ecs
 # (I)
 RUN mvn install -f /usr/local/mynavi-sample-aws-ecs/pom.xml
 
@@ -33,4 +33,4 @@ RUN ln -sf  /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
 EXPOSE 8080
 
 # (M)
-CMD java -jar -Dspring.profiles.active=production /usr/local/mynavi-sample-aws-ecs/backend/target/mynavi-sample-aws-ecs-backend-0.0.1-SNAPSHOT.jar
+CMD java -jar -Dspring.profiles.active=production /usr/local/mynavi-sample-aws-ecs/backend/target/backend-0.0.1-SNAPSHOT.jar
