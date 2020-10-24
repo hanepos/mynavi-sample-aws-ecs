@@ -22,7 +22,7 @@ ENV JAVA_HOME /etc/alternatives/jre
 # (H)
 RUN git clone https://github.com/hanepos/mynavi-sample-aws-ecs.git /usr/local/mynavi-sample-aws-ecs
 # (I)
-RUN mvn install -f /usr/local/mynavi-sample-aws-ecs/pom.xml
+RUN mvn install -f /usr/local/mynavi-sample-aws-ecs/backend/pom.xml
 
 # (J)
 RUN cp /etc/localtime /etc/localtime.org
