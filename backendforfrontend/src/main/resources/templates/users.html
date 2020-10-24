@@ -1,0 +1,22 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Users</title>
+</head>
+<body>
+<h1>Hello! AWS ECS sample!</h1>
+<table border="1">
+    <tr>
+        <th>No</th>
+        <th>User ID</th>
+        <th>User Name</th>
+    </tr>
+    <tr th:each="user, state : ${users}">
+        <td th:text="${state.count}"></td>
+        <td th:text="${user.userId}"></td>
+        <td th:text="${user.userName}"></td>
+    </tr>
+</table>
+</body>
+</html>
