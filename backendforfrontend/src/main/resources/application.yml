@@ -3,3 +3,6 @@ service:
 spring:
   thymeleaf:
     mode=HTML:
+server:
+  servlet:
+    context-path: /backend-for-frontend

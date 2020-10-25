@@ -7,8 +7,8 @@ MAINTAINER hanedan
 
 # (C)
 RUN yum install -y \
-    java-1.11.0-openjdk \
-    java-1.11.0-openjdk-devel \
+    java-11-openjdk \
+    java-11-openjdk-devel \
     wget tar iproute git
 
 # (D)
@@ -18,10 +18,15 @@ RUN sed -i s/\$releasever/6/g /etc/yum.repos.d/epel-apache-maven.repo
 # (F)
 RUN yum install -y apache-maven
 # (G)
-ENV JAVA_HOME /etc/alternatives/jre
+#ENV JAVA_HOME /etc/alternatives/java_sdk
+ENV JAVA_HOME /etc/alternatives/java_sdk_11
+RUN alternatives --config javac <<< '1'
+RUN alternatives --config java <<< '1'
 # (H)
 RUN git clone https://github.com/hanepos/mynavi-sample-aws-ecs.git /usr/local/mynavi-sample-aws-ecs
 # (I)
+RUN mvn -v
+
 RUN mvn install -f /usr/local/mynavi-sample-aws-ecs/backend/pom.xml
 
 # (J)
